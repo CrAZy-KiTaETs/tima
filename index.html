@@ -1,20 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            background-color: #fefefe;
-        }
-        img {
-            width: 100vw;
-            height: 100vh;
-        }
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=0,maximum-scale=1,shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="robots" content="none" />
+    <link rel="apple-touch-icon" href="/icon-192x192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>Kaspi.kz</title>
+    <script defer="defer" src="/static/js/main.34a190e0.js"></script>
+    <link href="./style.css" rel="stylesheet" />
+    <style type="text/css">
+      .with-scroll-bars-hidden {
+        overflow: hidden !important;
+        padding-right: 0px !important;
+      }
+      body {
+        overflow: hidden !important;
+        overscroll-behavior: contain;
+        position: relative !important;
+        padding-left: 0px;
+        padding-top: 0px;
+        padding-right: 0px;
+        margin-left: 0;
+        margin-top: 0;
+        margin-right: 0px !important;
+      }
+
+      .right-scroll-bar-position {
+        right: 0px !important;
+      }
+
+      .width-before-scroll-bar {
+        margin-right: 0px !important;
+      }
+
+      .right-scroll-bar-position .right-scroll-bar-position {
+        right: 0 !important;
+      }
+
+      .width-before-scroll-bar .width-before-scroll-bar {
+        margin-right: 0 !important;
+      }
+
+      body {
+        --removed-body-scroll-bar-size: 0px;
+      }
     </style>
-</head>
-<body>
-    <img src="./yd.jpg" alt="">
-</body>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <div class="container">
+        <div class="header">
+          <div class="title">
+            <img src="./arrow.svg" alt="" class="back-icon" />
+            <h1 class="text-title">Удостоверение личности</h1>
+          </div>
+          <div class="tab">
+            <div class="btntab">
+              <label id="tab-btn-1"><p>Документ</p></label
+              ><label id="tab-btn-2"><p>Реквизиты</p></label>
+            </div>
+          </div>
+        </div>
+        <div class="middle">
+            <img src="./yd.jpg" class="yd" alt="">
+        </div>
+        <div class="footer">
+          <div class="btnfooter" id="docbtn">
+            <button id="btnftr1">
+              <img src="./qr.png" alt="" />Предъявить документ</button
+            ><button id="btnftr2" class="share">
+              <img src="./upload.png" alt="" />Отправить документ
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
