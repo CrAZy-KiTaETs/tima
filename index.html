@@ -68,7 +68,7 @@
           </div>
         </div>
         <div class="middle">
-            <img src="./yd.jpg" class="yd" alt="">
+          <img src="./yd.jpg" class="yd" id="zoomableImage" alt="" />
         </div>
         <div class="footer">
           <div class="btnfooter" id="docbtn">
@@ -81,5 +81,50 @@
         </div>
       </div>
     </div>
+    <script>
+      const zoomableImage = document.getElementById("zoomableImage");
+      let scale = 1;
+      let startDistance = 0;
+
+      zoomableImage.addEventListener("dblclick", () => {
+        if (scale === 1) {
+          scale = 2; // Увеличение в 2 раза
+        } else {
+          scale = 1; // Возврат к исходному размеру
+        }
+        zoomableImage.style.transform = `scale(${scale})`;
+      });
+
+      zoomableImage.addEventListener(
+        "touchstart",
+        (e) => {
+          if (e.touches.length === 2) {
+            startDistance = getDistance(e.touches);
+          }
+        },
+        { passive: false }
+      );
+
+      zoomableImage.addEventListener(
+        "touchmove",
+        (e) => {
+          if (e.touches.length === 2) {
+            const currentDistance = getDistance(e.touches);
+            const scaleChange = currentDistance / startDistance;
+            scale = Math.min(Math.max(1, scale * scaleChange), 3); // Ограничиваем увеличение от 1 до 3
+            zoomableImage.style.transform = `scale(${scale})`;
+            startDistance = currentDistance; // Обновляем начальное расстояние для следующего события
+          }
+        },
+        { passive: false }
+      );
+
+      function getDistance(touches) {
+        const [touch1, touch2] = touches;
+        const dx = touch1.clientX - touch2.clientX;
+        const dy = touch1.clientY - touch2.clientY;
+        return Math.sqrt(dx * dx + dy * dy);
+      }
+    </script>
   </body>
 </html>
