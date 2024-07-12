@@ -196,7 +196,7 @@ div {
 /* Средняя часть */
 
 .middle {
-  padding: 0 2rem;
+  /* padding: 0 2rem; */
 }
 
 .yd {
@@ -284,27 +284,37 @@ div {
 }
 
 /* Кнопки снизу */
+
+.btnfooter {
+  width: 100%;
+  
+}
+
 .btnfooter button {
   width: 100%;
-  font-size: 19px;
-  line-height: 65px;
+  padding: 1rem .625rem;
+  font-size: 16px;
   border-radius: 12px;
+  font-weight: "Roboto Regular";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .625rem;
+  height: 56px;
 }
 
 .btnfooter img {
   width: 26px;
-  display: inline-block;
+  /* display: inline-block; */
   position: relative;
-  margin: auto auto;
-  top: 20px;
-  right: 10px;
+  /* margin: auto auto; */
+  /* top: 20px; */
+  /* right: 10px; */
 }
 
 .share img {
   width: 28px;
   height: 26px;
-  top: 18px;
-  right: 6px;
 }
 
 .btnfooter #btnftr1 {
@@ -327,6 +337,7 @@ div {
   position: absolute;
   bottom: 0;
   border-top: 1px solid #f3f3f3;
+  width: 100%;
 }
 
 /* ------------ */
