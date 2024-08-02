@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="utf-8" />
@@ -49,6 +50,26 @@
       body {
         --removed-body-scroll-bar-size: 0px;
       }
+
+      .hidden {
+        display: none;
+      }
+      
+      #uploadButton {
+        background-color: red;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+      }
+
+      #uploadButton.hidden {
+        display: none;
+      }
+
+      .middle {
+        padding: 0 20px;
+      }
     </style>
   </head>
   <body>
@@ -62,19 +83,22 @@
           </div>
           <div class="tab">
             <div class="btntab">
-              <label id="tab-btn-1"><p>Документ</p></label
-              ><label id="tab-btn-2"><p>Реквизиты</p></label>
+              <label id="tab-btn-1"><p>Документ</p></label>
+              <label id="tab-btn-2"><p>Реквизиты</p></label>
             </div>
           </div>
         </div>
         <div class="middle">
-          <img src="./yd.jpg" class="yd" id="zoomableImage" alt="" />
+          <img src="" class="yd hidden" id="zoomableImage" alt="" />
+          <input type="file" id="uploadImage" accept="image/*" style="display: none;" />
+          <button id="uploadButton">Загрузить</button>
         </div>
         <div class="footer">
           <div class="btnfooter" id="docbtn">
             <button id="btnftr1">
-              <img src="./qr.png" alt="" />Предъявить документ</button
-            ><button id="btnftr2" class="share">
+              <img src="./qr.png" alt="" />Предъявить документ
+            </button>
+            <button id="btnftr2" class="share">
               <img src="./upload.png" alt="" />Отправить документ
             </button>
           </div>
@@ -83,6 +107,8 @@
     </div>
     <script>
       const zoomableImage = document.getElementById("zoomableImage");
+      const uploadButton = document.getElementById("uploadButton");
+      const uploadImage = document.getElementById("uploadImage");
       let scale = 1;
       let startDistance = 0;
 
@@ -125,6 +151,24 @@
         const dy = touch1.clientY - touch2.clientY;
         return Math.sqrt(dx * dx + dy * dy);
       }
+
+      // Обработчик загрузки изображения
+      uploadButton.addEventListener("click", () => {
+        uploadImage.click();
+      });
+
+      uploadImage.addEventListener("change", (event) => {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            zoomableImage.src = e.target.result;
+            zoomableImage.classList.remove("hidden");
+            uploadButton.classList.add("hidden");
+          };
+          reader.readAsDataURL(file);
+        }
+      });
     </script>
   </body>
 </html>
